@@ -4310,11 +4310,21 @@ ol {
 		padding-right: 15px;
 	}
 }
-
 .youtube-wrap {position:relative; padding-bottom:56.25%; padding-top:30px; height:0; overflow:hidden;}
 .youtube-wrap iframe,
 .youtube-wrap object,
-.youtube-wrap embed {position:absolute; top:0; left:0; width:100%; height:100%;}
+.youtube-wrap embed {position:absolute; top:30px; left:0; width:50%; height:50%;}
+
+.box_video {
+	text-align: center;
+}
+
+.box_video iframe{
+   position: absolute;
+
+   width: 30%;
+   height: 30%;
+}
 
 .playon-instagarm {
 	width: 800px;
@@ -4333,4 +4343,8 @@ ol {
 	width:250px;
 	height:250px;
 	background-size:cover;
+}
+
+#ww {
+	text-align: center;
 }

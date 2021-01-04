@@ -3899,11 +3899,22 @@ ol {
 	.nav-item .nav-menu li a {
 		padding: 16px 45px 15px;
 	}
+
+	.lb-content {
+		width: 991px !important;
+		left: 0; right: 0;
+		margin: auto;
+	}
 }
 
 @media only screen and (min-width: 1200px) {
 	.container {
 		max-width: 1170px;
+	}
+	.lb-content {
+		width: 991px !important;
+		left: 0; right: 0;
+		margin: auto;
 	}
 }
 
@@ -3942,6 +3953,11 @@ ol {
 	}
 	.related-products .product-item .pi-pic ul li a {
 		padding: 16px 12px 12px 11px;
+	}
+	.lb-content {
+		width: 991px !important;
+		left: 0; right: 0;
+		margin: auto;
 	}
 }
 

@@ -4117,7 +4117,6 @@ ol {
 		display: block;
 		background: transparent;
 		text-align: center;
-		margin-top: -48px;
 	}
 	.slicknav_nav {
 		background: #333;
@@ -4140,7 +4139,6 @@ ol {
 		border-radius: 0;
 		background-color: #e7ab3c;
 		display: inline-block;
-		right: -16px;
 	}
 	.slicknav_nav .slicknav_row,
 	.slicknav_nav a {
@@ -4343,8 +4341,4 @@ ol {
 	width:250px;
 	height:250px;
 	background-size:cover;
-}
-
-#ww {
-	text-align: center;
 }

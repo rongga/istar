@@ -4339,22 +4339,3 @@ ol {
    width: 60.2%;
    height: 57.4%;
 }
-
-.playon-instagarm {
-	width: 800px;
-	margin: 0 auto;
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-between;
-}
-
-.instagram {
-	width: 250px;
-	margin-bottom: 30px;
-}
-
-.instagram-thum {
-	width:250px;
-	height:250px;
-	background-size:cover;
-}

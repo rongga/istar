@@ -119,7 +119,7 @@
         autoHeight: false,
         autoplay: true,
     });
-    
+
     /*------------------
         CountDown
     --------------------*/
@@ -140,7 +140,7 @@
     // For demo preview end
 
     console.log(timerdate);
-    
+
 
     // Use this for real timer date
     /* var timerdate = "2020/01/01"; */
@@ -149,9 +149,9 @@
         $(this).html(event.strftime("<div class='cd-item'><span>%D</span> <p>Days</p> </div>" + "<div class='cd-item'><span>%H</span> <p>Hrs</p> </div>" + "<div class='cd-item'><span>%M</span> <p>Mins</p> </div>" + "<div class='cd-item'><span>%S</span> <p>Secs</p> </div>"));
     });
 
-        
+
     /*----------------------------------------------------
-     Language Flag js 
+     Language Flag js
     ----------------------------------------------------*/
     $(document).ready(function(e) {
     //no use
@@ -203,7 +203,7 @@
         $(".fw-size-choose .sc-item label, .pd-size-choose .sc-item label").removeClass('active');
         $(this).addClass('active');
     });
-    
+
     /*-------------------
 		Nice Select
     --------------------- */
@@ -224,7 +224,7 @@
 	});
 
     $('.product-pic-zoom').zoom();
-    
+
     /*-------------------
 		Quantity change
 	--------------------- */
@@ -246,5 +246,54 @@
 		}
 		$button.parent().find('input').val(newVal);
 	});
+
+  /*
+  ** main_function
+  */
+  var fnBgColor = ['#fffdf4', '#f5fffd', '#fefff6', '#eefcff'],
+      fnBgImg = ['/img/main/fn_bg1.png', '/img/main/fn_bg2.png', '/img/main/fn_bg3.png', '/img/main/fn_bg4.png'];
+
+  var $fnTabItem = $('.fn_tab .fn_tab_item'),
+      $fnConItem = $('.fn_con .fn_con_item'),
+      $mainFunction = $('.main_function');
+
+  var tabInterval = setInterval(tabAuto, 3000);
+
+  $fnTabItem.on('click', function(){
+      var index = $(this).index();
+
+      clearInterval(tabInterval);
+      tabInterval = setInterval(tabAuto, 3000);
+
+      $(this).addClass('active').siblings().removeClass('active');
+      $mainFunction.css({
+          'background-color':fnBgColor[index],
+          'background-image':'url('+fnBgImg[index]+')'
+      });
+      $fnConItem.eq(index).addClass('active').siblings().removeClass('active');
+  });
+
+  function tabAuto(){
+      var index = $('.fn_tab .fn_tab_item.active').index();
+
+      $fnTabItem.eq(index).removeClass('active');
+      $fnConItem.eq(index).removeClass('active');
+
+      if ( index == 3 ) {
+          $('.main_function').css({
+              'background-color':fnBgColor[0],
+              'background-image':'url('+fnBgImg[0]+')'
+          });
+          $fnTabItem.eq(0).addClass('active');
+          $fnConItem.eq(0).addClass('active');
+      } else {
+          $mainFunction.css({
+              'background-color':fnBgColor[index+1],
+              'background-image':'url('+fnBgImg[index+1]+')'
+          });
+          $fnTabItem.eq(index+1).addClass('active');
+          $fnConItem.eq(index+1).addClass('active');
+      }
+  }
 
 })(jQuery);

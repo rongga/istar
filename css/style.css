@@ -1432,6 +1432,7 @@ ol {
 
 .single-latest-blog {
 	margin-bottom: 25px;
+	max-width: 100%;
 }
 
 .single-latest-blog img {

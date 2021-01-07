@@ -251,7 +251,7 @@
   ** main_function
   */
   var fnBgColor = ['#fffdf4', '#f5fffd', '#fefff6', '#eefcff'],
-      fnBgImg = ['/img/main/fn_bg1.png', '/img/main/fn_bg2.png', '/img/main/fn_bg3.png', '/img/main/fn_bg4.png'];
+      fnBgImg = ['../img/main/fn/fn_bg1.png', '../img/main/fn/fn_bg2.png', '../img/main/fn/fn_bg3.png', '../img/main/fn/fn_bg4.png'];
 
   var $fnTabItem = $('.fn_tab .fn_tab_item'),
       $fnConItem = $('.fn_con .fn_con_item'),

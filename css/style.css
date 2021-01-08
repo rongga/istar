@@ -798,9 +798,10 @@ ol {
 
 .nav-item .nav-menu li .dropdown {
 	position: absolute;
+	text-align: center;
 	right: 0;
 	top: 82px;
-	width: 200px;
+	width: 150px;
 	z-index: 99;
 	background: #ffffff;
 	opacity: 0;
@@ -816,8 +817,7 @@ ol {
 }
 
 .nav-item .nav-menu li .dropdown li:hover>a {
-	background: transparent;
-	color: #e7ab3c;
+	background: #e7ab3c;
 }
 
 .nav-item .nav-menu li .dropdown li a {

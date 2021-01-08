@@ -653,16 +653,18 @@ ol {
 }
 
 .nav-item {
-	background: #252525;
+	background: white;
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
 }
 
+.nav-item #logo-container {
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
 .nav-item .logo {
-	display: block;
-	margin: 0;
-	width: 100%;
+		max-width: 130px;
 }
 
 .nav-item .logo img {
@@ -775,8 +777,8 @@ ol {
 	font-size: 10px;
 	font-weight: 700;
 	display: block;
-	color: #ffffff;
-	border-right: 2px solid #3b3b3b;
+	color: #252525;
+	border-right: 2px solid #ffffff;
 	text-transform: uppercase;
 	padding: 16px 42px 15px;
 	-webkit-transition: all 0.3s;
@@ -800,7 +802,7 @@ ol {
 	top: 82px;
 	width: 200px;
 	z-index: 99;
-	background: #252525;
+	background: #ffffff;
 	opacity: 0;
 	visibility: hidden;
 	-webkit-transition: all 0.3s;

@@ -1423,8 +1423,8 @@ ol {
 }
 .latest-blog .container{
 	position: relative;
-	margin-left: 0;
-	padding: 0
+	margin-left: 0px;
+	padding-left: 0px;
 	width: 100%;
 	height: auto;
 }
@@ -4110,8 +4110,8 @@ ol {
 	}
 	.latest-blog #brand-right {
 		position: absolute;
-		right: 0;
-		bottom: 0;
+		right: 5%;
+		bottom: 0px;
 	}
 }
 

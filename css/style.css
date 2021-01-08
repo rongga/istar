@@ -1418,7 +1418,7 @@ ol {
 
 .latest-blog {
 	position: relative;
-	padding-top: 72px;
+	padding-top: 0px;
 	padding-bottom: 80px;
 }
 .latest-blog .container{

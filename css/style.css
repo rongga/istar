@@ -412,6 +412,18 @@ ol {
 	margin-left: 15px;
 }
 
+.nav-item .top-social {
+	padding-top: 15px;
+	padding-left: 0px;
+	padding-right: 0px;
+	text-align: center;
+}
+
+.nav-item .top-social a {
+	margin-left: 2px;
+	margin-right: 2px;
+}
+
 .logo-line {
 	text-align: center;
 }
@@ -659,10 +671,17 @@ ol {
 	display: flex;
 }
 
+.nav-item .container {
+	width: 100%;
+}
+.nav-item #inner-header-row{
+	text-align: right;
+}
 .nav-item #logo-container {
 	margin-top: 5px;
 	margin-bottom: 5px;
 }
+
 .nav-item .logo {
 		max-width: 130px;
 }
@@ -774,11 +793,11 @@ ol {
 }
 
 .nav-item .nav-menu li a {
-	font-size: 10px;
+	font-size: 15px;
 	font-weight: 700;
 	display: block;
 	color: #252525;
-	border-right: 2px solid #ffffff;
+	border-right: 1px solid lightgray;
 	text-transform: uppercase;
 	padding: 16px 42px 15px;
 	-webkit-transition: all 0.3s;
@@ -985,8 +1004,7 @@ ol {
 -----------------------*/
 
 .banner-section {
-	margin-top:30px;
-	padding: 0;
+	padding: 0px;
 }
 
 .banner-section div{
@@ -995,14 +1013,20 @@ ol {
 }
 
 .single-banner {
+	padding-left: 1px;
+	padding-right: 1px;
 	position: relative;
 	z-index: 1;
 }
 
 .single-banner .banner-size {
+	position: relative;
+	margin: auto;
 	max-width: 640px;
 }
-
+.single-banner .icon-size {
+	max-width: 640px;
+}
 .single-banner:hover::before {
 	-webkit-transform: scale(1);
 	-ms-transform: scale(1);
@@ -3943,7 +3967,7 @@ ol {
 		padding: 16px 12px 12px 11px;
 	}
 	.nav-item .nav-menu li a {
-		padding: 16px 45px 15px;
+		padding: 16px 30px 15px;
 	}
 
 }
@@ -3964,7 +3988,10 @@ ol {
 		max-width: 64%;
 	}
 	.nav-item .nav-menu li a {
-		padding: 16px 26px 15px;
+		padding: 12px 15px 11px;
+	}
+	.nav-item .top-social {
+		padding-top: 10px;
 	}
 	.hero-items .owl-nav button[type=button] {
 		left: 5px;
@@ -4079,7 +4106,10 @@ ol {
 		padding: 14px 40px 14px 18px;
 	}
 	.nav-item .nav-menu li a {
-		padding: 16px 10px 15px;
+		padding: 12px 13px 11px;
+	}
+	.nav-item .top-social {
+		display: none;
 	}
 	.instagram-photo .insta-item .inside-text h5 {
 		font-size: 14px;
@@ -4170,7 +4200,9 @@ ol {
 	.nav-item .container {
 		margin-left: 0;
 	}
-
+	.nav-item #logo-container {
+		display: none;
+	}
 	.nav-item .nav-menu {
 		display: none;
 	}
@@ -4194,6 +4226,9 @@ ol {
 		padding-left: 25px;
 	}
 	.nav-item .nav-depart {
+		display: none;
+	}
+	.nav-item #inner-header-row{
 		display: none;
 	}
 	.slicknav_btn {

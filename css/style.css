@@ -678,6 +678,8 @@ ol {
 	text-align: right;
 }
 .nav-item #logo-container {
+	padding-left: 20px;
+	padding-right: 0px;
 	margin-top: 5px;
 	margin-bottom: 5px;
 }

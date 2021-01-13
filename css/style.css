@@ -398,7 +398,7 @@ ol {
 }
 
 .header-top .ht-right .top-social {
-	float: right;
+	float: center;
 	padding-right: 20px;
 	padding-top: 15px;
 	padding-bottom: 15px;
@@ -409,7 +409,7 @@ ol {
 	color: #252525;
 	font-size: 14px;
 	display: inline-block;
-	margin-left: 15px;
+	margin-left: 10px;
 }
 
 .nav-item .top-social {
@@ -420,8 +420,8 @@ ol {
 }
 
 .nav-item .top-social a {
-	margin-left: 2px;
-	margin-right: 2px;
+	margin-left: 5px;
+	margin-right: 5px;
 }
 
 .logo-line {
@@ -675,7 +675,7 @@ ol {
 	width: 100%;
 }
 .nav-item #inner-header-row{
-	text-align: right;
+	text-align: center;
 }
 .nav-item #logo-container {
 	padding-left: 20px;
@@ -791,7 +791,7 @@ ol {
 }
 
 .nav-item .nav-menu li.active a {
-	background: #e7ab3c;
+	color: #e7ab3c;
 }
 
 .nav-item .nav-menu li a {
@@ -799,30 +799,26 @@ ol {
 	font-weight: 700;
 	display: block;
 	color: #252525;
-	border-right: 1px solid lightgray;
 	text-transform: uppercase;
-	padding: 16px 42px 15px;
 	-webkit-transition: all 0.3s;
 	-o-transition: all 0.3s;
 	transition: all 0.3s;
+	border-bottom: 2px solid #ffffff;
 }
 
 .nav-item .nav-menu li:hover>a {
-	background: #e7ab3c;
+	border-bottom: 2px solid #fed017;
 }
 
 .nav-item .nav-menu li:hover .dropdown {
 	opacity: 1;
 	visibility: visible;
-	top: 52px;
 }
 
 .nav-item .nav-menu li .dropdown {
 	position: absolute;
-	text-align: left;
-	right: 0;
-	top: 82px;
-	width: 150px;
+	top: 100%;
+	text-align: center;
 	z-index: 99;
 	background: #ffffff;
 	opacity: 0;
@@ -830,21 +826,25 @@ ol {
 	-webkit-transition: all 0.3s;
 	-o-transition: all 0.3s;
 	transition: all 0.3s;
+	width: 100%;
 }
 
 .nav-item .nav-menu li .dropdown li {
 	display: block;
 	margin-left: 0;
+
 }
 
 .nav-item .nav-menu li .dropdown li:hover>a {
-	background: #e7ab3c;
+	background: #ffffff;
+	color: #fed017;
 }
 
 .nav-item .nav-menu li .dropdown li a {
-	border-right: 0;
-	padding: 13px 20px 12px 30px;
+	font-size: 13px;
+	padding: 10px 10px 10px 10px;
 	text-transform: capitalize;
+	border-bottom: 0px;
 }
 
 .slicknav_menu {
@@ -3971,7 +3971,7 @@ ol {
 		padding: 16px 12px 12px 11px;
 	}
 	.nav-item .nav-menu li a {
-		padding: 16px 30px 15px;
+		padding: 20px 33px 21px;
 	}
 
 }
@@ -3992,7 +3992,7 @@ ol {
 		max-width: 64%;
 	}
 	.nav-item .nav-menu li a {
-		padding: 12px 15px 11px;
+		padding: 15px 15px 15px;
 	}
 	.nav-item .top-social {
 		padding-top: 10px;

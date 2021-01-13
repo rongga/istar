@@ -412,17 +412,6 @@ ol {
 	margin-left: 10px;
 }
 
-.nav-item .top-social {
-	padding-top: 15px;
-	padding-left: 0px;
-	padding-right: 0px;
-	text-align: center;
-}
-
-.nav-item .top-social a {
-	margin-left: 5px;
-	margin-right: 5px;
-}
 
 .logo-line {
 	text-align: center;
@@ -674,26 +663,6 @@ ol {
 .nav-item .container {
 	width: 100%;
 }
-.nav-item #inner-header-row{
-	text-align: center;
-}
-.nav-item #logo-container {
-	padding-left: 20px;
-	padding-right: 0px;
-	margin-top: 5px;
-	margin-bottom: 5px;
-}
-
-.nav-item .logo {
-		max-width: 130px;
-}
-
-.nav-item .logo img {
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-	width: 90%;
-}
 
 .nav-item .nav-depart {
 	float: left;
@@ -775,7 +744,40 @@ ol {
 .nav-item .nav-depart .depart-btn .depart-hover li a:hover {
 	color: #e7ab3c;
 }
+.nav-item #inner-header-row{
+	text-align: center;
+	vertical-align: middle;
+	padding: 0px 15px;
+}
+.nav-item #logo-container {
+	padding-left: 0px;
+	padding-right: 0px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
 
+.nav-item .logo {
+		max-width: 130px;
+}
+
+.nav-item .logo img {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 90%;
+}
+.nav-item .top-social {
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding-left: 0px;
+	padding-right: 0px;
+	text-align: center;
+}
+
+.nav-item .top-social a {
+	margin-left: 5px;
+	margin-right: 5px;
+}
 .nav-item .nav-menu {
 	display: -webkit-inline-box;
 	display: -ms-inline-flexbox;
@@ -3971,7 +3973,7 @@ ol {
 		padding: 16px 12px 12px 11px;
 	}
 	.nav-item .nav-menu li a {
-		padding: 20px 33px 21px;
+		padding: 20px 30px 21px;
 	}
 
 }
@@ -3991,12 +3993,17 @@ ol {
 	.inner-header .advanced-search .input-group {
 		max-width: 64%;
 	}
+
+	.nav-item .top-social {
+		padding-top: 20px;
+		padding-bottom: 5px;
+	}
+
 	.nav-item .nav-menu li a {
+		margin-top: 10px;
 		padding: 15px 15px 15px;
 	}
-	.nav-item .top-social {
-		padding-top: 10px;
-	}
+
 	.hero-items .owl-nav button[type=button] {
 		left: 5px;
 	}
@@ -4110,7 +4117,7 @@ ol {
 		padding: 14px 40px 14px 18px;
 	}
 	.nav-item .nav-menu li a {
-		padding: 12px 13px 11px;
+		padding: 20px 15px 15px;
 	}
 	.nav-item .top-social {
 		display: none;

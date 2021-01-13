@@ -295,5 +295,5 @@
           $fnConItem.eq(index+1).addClass('active');
       }
   }
-
+  
 })(jQuery);

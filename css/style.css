@@ -4003,7 +4003,9 @@ ol {
 		margin-top: 10px;
 		padding: 15px 15px 15px;
 	}
-
+	.nav-item .nav-menu li .dropdown li a {
+		font-size: 12px;
+	}
 	.hero-items .owl-nav button[type=button] {
 		left: 5px;
 	}
@@ -4117,7 +4119,11 @@ ol {
 		padding: 14px 40px 14px 18px;
 	}
 	.nav-item .nav-menu li a {
+		font-size: 13px;
 		padding: 20px 15px 15px;
+	}
+	.nav-item .nav-menu li .dropdown li a {
+		font-size: 10px;
 	}
 	.nav-item .top-social {
 		display: none;

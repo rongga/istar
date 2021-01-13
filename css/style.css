@@ -1457,9 +1457,12 @@ ol {
 	width: 100%;
 	height: auto;
 }
-
-.latest-blog img {
-	margin-top: 30px;
+.latest-blog #brand-right {
+	text-align: left;
+}
+.latest-blog #brand-right .first, .latest-blog #brand-right .second {
+	padding-left: 10px;
+	padding-right: 0px;
 }
 
 .latest-blog .section-title {
@@ -1479,9 +1482,7 @@ ol {
 	max-width: 790px;
 }
 
-.single-latest-blog .latest-text {
-	padding-top: 25px;
-}
+
 
 .single-latest-blog .latest-text .tag-list {
 	margin-bottom: 8px;
@@ -4145,8 +4146,9 @@ ol {
 	}
 	.latest-blog #brand-right {
 		position: absolute;
-		right: 5%;
-		bottom: 0px;
+		width: 40%;
+		top: 14%;
+		right: 15%;
 	}
 }
 

@@ -248,14 +248,14 @@
 	});
 
   /*
-  ** main_function
+  ** look_change
   */
-  var fnBgColor = ['#fffdf4', '#f5fffd', '#fefff6', '#eefcff'],
+  var fnBgColor = ['#fff2f2', '#fffeeb', '#f3fcef', '#eff8ff'],
       fnBgImg = ['../img/main/fn/fn_bg1.png', '../img/main/fn/fn_bg2.png', '../img/main/fn/fn_bg3.png', '../img/main/fn/fn_bg4.png'];
 
-  var $fnTabItem = $('.fn_tab .fn_tab_item'),
-      $fnConItem = $('.fn_con .fn_con_item'),
-      $mainFunction = $('.main_function');
+  var $fnTabItem = $('.menu_tab .menu_tab_li'),
+      $fnConItem = $('.look_picture .look_pic_page'),
+      $mainFunction = $('.look_change');
 
   var tabInterval = setInterval(tabAuto, 3000);
 
@@ -267,33 +267,34 @@
 
       $(this).addClass('active').siblings().removeClass('active');
       $mainFunction.css({
-          'background-color':fnBgColor[index],
-          'background-image':'url('+fnBgImg[index]+')'
+          'background-color':fnBgColor[index]
+          // 'background-color':fnBgColor[index],
+          // 'background-image':'url('+fnBgImg[index]+')'
       });
       $fnConItem.eq(index).addClass('active').siblings().removeClass('active');
   });
 
   function tabAuto(){
-      var index = $('.fn_tab .fn_tab_item.active').index();
+      var index = $('.menu_tab .menu_tab_li.active').index();
 
       $fnTabItem.eq(index).removeClass('active');
       $fnConItem.eq(index).removeClass('active');
 
       if ( index == 3 ) {
-          $('.main_function').css({
-              'background-color':fnBgColor[0],
-              'background-image':'url('+fnBgImg[0]+')'
+          $('.look_change').css({
+              'background-color':fnBgColor[0]
+              // 'background-image':'url('+fnBgImg[0]+')'
           });
           $fnTabItem.eq(0).addClass('active');
           $fnConItem.eq(0).addClass('active');
       } else {
           $mainFunction.css({
-              'background-color':fnBgColor[index+1],
-              'background-image':'url('+fnBgImg[index+1]+')'
+              'background-color':fnBgColor[index+1]
+              // 'background-image':'url('+fnBgImg[index+1]+')'
           });
           $fnTabItem.eq(index+1).addClass('active');
           $fnConItem.eq(index+1).addClass('active');
       }
   }
-  
+
 })(jQuery);

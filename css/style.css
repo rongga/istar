@@ -3972,7 +3972,10 @@ ol {
 		padding: 16px 12px 12px 11px;
 	}
 	.nav-item #logo-container {
-		margin-top: 25px;
+		margin-top: 18px;
+	}
+	.nav-item .logo {
+			max-width: 180px;
 	}
 	.nav-item .nav-menu li a {
 		font-size: 17px;
@@ -4470,7 +4473,8 @@ ol {
 }
 
 .main_function {width:100%;padding:120px 0;background-color:#fffdf4;background-image:url('../img/main/fn/fn_bg1.png');background-repeat:no-repeat;background-position:160px center;transition:all .5s ease-in-out;}
-.main_function .fn_absolute {float:left;}
+.main_function .fn_absolute {float:right;margin-right:18%;margin-top:5%;}
+.main_tit {margin-bottom: 50%;}
 .fn_tab {position:relative;width:230px;margin-top:40px;}
 .fn_tab::before {content:'';display:block;position:absolute;top:50%;left:50%;width:190px;height:100%;padding:15px 0;background:#fff;box-shadow: 3px 3px 25px 3px rgba(202,202,202,.3);border-radius:20px;transform:translate(-50%, -50%);}
 .fn_tab .fn_tab_item {position:relative;height:47px;line-height:47px;font-size:18px;color:#777;cursor:pointer;z-index:1;width:100%;padding-left:50px;border-radius:47px;transition:all .5s ease-in-out;}
@@ -4480,7 +4484,7 @@ ol {
 .fn_tab .fn_tab_item:nth-child(4).active {background-color:#64cbe6;color:#0092b7;}
 .fn_con .fn_con_item {display:none;}
 .fn_con .fn_con_item.active {display:block;}
-.fn_con .fn_con_item .img_box {position:relative;width:480px;margin:0 auto 40px;}
+.fn_con .fn_con_item .img_box {position:relative;width:480px;margin:0 15% 40px;}
 .fn_con .fn_con_item .img_box .zoom_img {position:absolute;width:200px;}
 .fn_con .fn_con_item:nth-child(1) .img_box .zoom_img {top:115px;left:-70px;}
 .fn_con .fn_con_item:nth-child(3) .img_box .zoom_img,

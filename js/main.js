@@ -250,8 +250,7 @@
   /*
   ** look_change
   */
-  var fnBgColor = ['#fff2f2', '#fffeeb', '#f3fcef', '#eff8ff'],
-      fnBgImg = ['../img/main/fn/fn_bg1.png', '../img/main/fn/fn_bg2.png', '../img/main/fn/fn_bg3.png', '../img/main/fn/fn_bg4.png'];
+  var fnBgColor = ['#fff2f2', '#fffeeb', '#f3fcef', '#eff8ff'];
 
   var $fnTabItem = $('.menu_tab .menu_tab_li'),
       $fnConItem = $('.look_picture .look_pic_page'),

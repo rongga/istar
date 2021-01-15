@@ -296,5 +296,10 @@
           $fnConItem.eq(index+1).addClass('active');
       }
   }
+  var popover_template='<div class="popover" role="tooltip"><div class="arrow"></div><h3 class="popover-title"></h3><div class="popover-content"></div></div>'
+  $('[data-toggle="popover"]').popover({
+    template: '<img src="../img/logo.png">'
+  })
+
 
 })(jQuery);

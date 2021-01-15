@@ -750,7 +750,7 @@ ol {
 	padding: 0px 15px;
 }
 .nav-item #logo-container {
-	padding-left: 0px;
+	padding-left: 50px;
 	padding-right: 0px;
 	margin-top: 10px;
 	margin-bottom: 10px;
@@ -3972,7 +3972,7 @@ ol {
 		padding: 16px 12px 12px 11px;
 	}
 	.nav-item #logo-container {
-		margin-top: 18px;
+		margin-top: 20px;
 	}
 	.nav-item .logo {
 			max-width: 180px;

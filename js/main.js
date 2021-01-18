@@ -254,8 +254,7 @@
 
   var $fnTabItem = $('.menu_tab .menu_tab_li'),
       $fnConItem = $('.look_picture .look_pic_page'),
-      $mainFunction = $('.look_change'),
-      $explain = $('.ex');
+      $mainFunction = $('.look_change');
 
   var tabInterval = setInterval(tabAuto, 3000);
 
@@ -272,7 +271,6 @@
           // 'background-image':'url('+fnBgImg[index]+')'
       });
       $fnConItem.eq(index).addClass('active').siblings().removeClass('active');
-      $explain.eq(index).addClass('active').siblings().removeClass('active');
   });
 
   function tabAuto(){
@@ -280,7 +278,6 @@
 
       $fnTabItem.eq(index).removeClass('active');
       $fnConItem.eq(index).removeClass('active');
-      $explain.eq(index).removeClass('active');
 
       if ( index == 3 ) {
           $('.look_change').css({
@@ -289,7 +286,6 @@
           });
           $fnTabItem.eq(0).addClass('active');
           $fnConItem.eq(0).addClass('active');
-          $explain.eq(0).addClass('active');
       } else {
           $mainFunction.css({
               'background-color':fnBgColor[index+1]
@@ -297,7 +293,6 @@
           });
           $fnTabItem.eq(index+1).addClass('active');
           $fnConItem.eq(index+1).addClass('active');
-          $explain.eq(index+1).addClass('active');
       }
   }
 

@@ -4477,7 +4477,8 @@ ol {
 }
 
 .look_change {text-align:center;width:100%;padding:120px 0;background-color:#fff2f2;background-repeat:no-repeat;background-position:160px center;transition:all .5s ease-in-out;}
-.look_change .ex {margin-bottom: 200px;}
+.look_change .ex {display: none;margin-bottom: 200px;}
+.look_change .ex.active {display: block;}
 .look_change .look_menu {float:right;margin-right:15%;margin-top:5%;}
 .look_change .sbr {display: none;}
 .menu_logo {margin-bottom: 50%;text-align:center;}

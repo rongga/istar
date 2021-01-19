@@ -300,9 +300,24 @@
           $explain.eq(index+1).addClass('active');
       }
   }
+  /*
+  brand-fn
+  */
 
-  $('[data-toggle="popover"]').popover({
-    template: '<img src="../img/logo.png">'
+  $('[data-toggle="popover-kid-1"]').popover({
+    template: '<img src="../img/brand/kid/detail_1.png" class="detail_pic left" id="kid1">'
+  })
+  $('[data-toggle="popover-kid-2"]').popover({
+    template: '<img src="../img/brand/kid/detail_2.png" class="detail_pic left">'
+  })
+  $('[data-toggle="popover-kid-3"]').popover({
+    template: '<img src="../img/brand/kid/detail_3.png" class="detail_pic left">'
+  })
+  $('[data-toggle="popover-kid-4"]').popover({
+    template: '<img src="../img/brand/kid/detail_4.png" class="detail_pic right">'
+  })
+  $('[data-toggle="popover-kid-5"]').popover({
+    template: '<img src="../img/brand/kid/detail_5.png" class="detail_pic right">'
   })
 
 

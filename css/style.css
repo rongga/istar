@@ -1377,6 +1377,40 @@ ol {
 	padding-bottom: 80px;
 }
 
+/*
+Brand
+*/
+.brand-move {width: 100%;text-align: center; margin: 50px 0;}
+.brand-move img {width: 15%;margin: 0 5px;}
+.brand-fn {position: relative;text-align: center;width: 100%;}
+.brand-fn .main_img {width: 45%;}
+
+/* .brand-fn .star-kid {position: absolute;outline-color: rgba(255,255,255,0)!important;background-color: rgba(255,255,255,0)!important;border-color: rgba(255,255,255,0)!important;}
+.brand-fn .star-kid img {width:80%;}
+.brand-fn .star-kid:nth-child(1) {top:18%;right:58%;}
+.brand-fn .star-kid:nth-child(2) {top:19%;right:53%;}
+.brand-fn .star-kid:nth-child(3) {top:43%;right:55%;}
+.brand-fn .star-kid:nth-child(4) {top:40%;right:38%;}
+.brand-fn .star-kid:nth-child(5) {top:55%;right:30%;} */
+
+.brand-fn .star-kid {position: absolute;outline-color: rgba(255,255,255,0)!important;background-color: rgba(255,255,255,0)!important;border-color: rgba(255,255,255,0)!important;}
+.brand-fn .star-kid img {width:80%;}
+.brand-fn .star-kid.one {top:18%;right:58%;}
+.brand-fn .star-kid.two {top:19%;right:53%;}
+.brand-fn .star-kid.three {top:43%;right:55%;}
+.brand-fn .star-kid.four {top:40%;right:38%;}
+.brand-fn .star-kid.five {top:55%;right:30%;}
+#kid1 {position: absolute!important;left: 0!important;}
+.detail_pic.left {position: absolute!important;width: 500px;left:10px!important;}
+.detail_pic.right {position: absolute!important;width: 500px;right:-20%!important;}
+
+#banner {
+	background: url("../img/brand/kid/main.png") no-repeat center top;
+	height: 100%;
+}
+
+
+
 /*---------------------
   Instagram Photo
 -----------------------*/
@@ -4449,11 +4483,7 @@ ol {
    width: 52.5%;
    height: 77.5%;
 }
-#banner {
-	background: url("../img/intro/banner.jpg") no-repeat center top;
-	background-size: 100%;
-	height: 500px;
-}
+
 .shake:hover {
   /* Start the shake animation and make the animation last for 0.5 seconds */
   animation: shake 0.5s;

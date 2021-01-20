@@ -303,7 +303,7 @@
   /*
   brand-fn
   */
-  var $star = $('.brand-fn .stars-kid .star-content');
+  var $star = $('.brand-fn .stars .star-content');
   $star.on('click', function(){
     console.log($(this).index());
     $(this).addClass('active').siblings().removeClass('active');

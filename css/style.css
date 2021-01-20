@@ -1384,7 +1384,8 @@ Brand
 .brand-move img {width: 15%;margin: 0 5px;}
 .brand-fn {position: relative;text-align: center;width: 100%;}
 .brand-fn .main-img {text-align:center;width: 50%;margin: auto;}
-.brand-fn .stars-kid .star-content {width:4%;position: absolute;cursor: pointer;}
+.brand-fn .stars-kid .star-content {width:4%;position: absolute;}
+.brand-fn .stars-kid .star-content .star-pic {cursor: pointer;}
 .brand-fn .stars-kid .star-content .star-pic .gray {display: block;}
 .brand-fn .stars-kid .star-content .star-pic .yellow {display: none;}
 .brand-fn .stars-kid .star-content.active .star-pic .gray {display: none;}

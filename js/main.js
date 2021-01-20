@@ -303,6 +303,11 @@
   /*
   brand-fn
   */
+  var $star = $('.brand-fn .stars-kid .star-content');
+  $star.on('click', function(){
+    console.log($(this).index());
+    $(this).addClass('active').siblings().removeClass('active');
+  });
 
   $('[data-toggle="popover-kid-1"]').popover({
     template: '<img src="../img/brand/kid/detail_1.png" class="detail_pic left" id="kid1">'

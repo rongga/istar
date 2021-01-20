@@ -1381,8 +1381,8 @@ ol {
 Brand
 */
 .brand-move {width: 100%;text-align: center; margin: 50px 0;}
-.brand-move img {width: 15%;margin: 0 5px;}
-.brand-fn {position: relative;text-align: center;width: 100%;}
+.brand-move img {width: 10%;margin: 0 5px;}
+.brand-fn {position: relative;text-align: center;width: 100%;margin-bottom: 250px;}
 .brand-fn .main-img {text-align:center;width: 50%;margin: auto;}
 .brand-fn .stars .star-content {width:4%;position: absolute;}
 .brand-fn .stars .star-content .star-pic {cursor: pointer;}

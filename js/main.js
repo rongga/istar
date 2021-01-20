@@ -250,53 +250,49 @@
   /*
   ** look_change
   */
-  var fnBgColor = ['#fff2f2', '#fffeeb', '#f3fcef', '#eff8ff'];
+  var lookBgColor = ['#fff2f2', '#fffeeb', '#f3fcef', '#eff8ff'];
 
-  var $fnTabItem = $('.menu_tab .menu_tab_li'),
-      $fnConItem = $('.look_picture .look_pic_page'),
-      $mainFunction = $('.look_change'),
+  var $menuTabs = $('.menu_tab .menu_tab_li'),
+      $lookPictures = $('.look_picture .look_pic_page'),
+      $lookChange = $('.look_change'),
       $explain = $('.ex');
 
-  var tabInterval = setInterval(tabAuto, 3000);
+  var tabInterval = setInterval(autoSlide, 3000);
 
-  $fnTabItem.on('click', function(){
+  $menuTabs.on('click', function(){
       var index = $(this).index();
 
       clearInterval(tabInterval);
-      tabInterval = setInterval(tabAuto, 3000);
+      tabInterval = setInterval(autoSlide, 3000);
 
       $(this).addClass('active').siblings().removeClass('active');
-      $mainFunction.css({
-          'background-color':fnBgColor[index]
-          // 'background-color':fnBgColor[index],
-          // 'background-image':'url('+fnBgImg[index]+')'
+      $lookChange.css({
+          'background-color':lookBgColor[index]
       });
-      $fnConItem.eq(index).addClass('active').siblings().removeClass('active');
+      $lookPictures.eq(index).addClass('active').siblings().removeClass('active');
       $explain.eq(index).addClass('active').siblings().removeClass('active');
   });
 
-  function tabAuto(){
+  function autoSlide(){
       var index = $('.menu_tab .menu_tab_li.active').index();
 
-      $fnTabItem.eq(index).removeClass('active');
-      $fnConItem.eq(index).removeClass('active');
+      $menuTabs.eq(index).removeClass('active');
+      $lookPictures.eq(index).removeClass('active');
       $explain.eq(index).removeClass('active');
 
       if ( index == 3 ) {
           $('.look_change').css({
-              'background-color':fnBgColor[0]
-              // 'background-image':'url('+fnBgImg[0]+')'
+              'background-color':lookBgColor[0]
           });
-          $fnTabItem.eq(0).addClass('active');
-          $fnConItem.eq(0).addClass('active');
+          $menuTabs.eq(0).addClass('active');
+          $lookPictures.eq(0).addClass('active');
           $explain.eq(0).addClass('active');
       } else {
-          $mainFunction.css({
-              'background-color':fnBgColor[index+1]
-              // 'background-image':'url('+fnBgImg[index+1]+')'
+          $lookChange.css({
+              'background-color':lookBgColor[index+1]
           });
-          $fnTabItem.eq(index+1).addClass('active');
-          $fnConItem.eq(index+1).addClass('active');
+          $menuTabs.eq(index+1).addClass('active');
+          $lookPictures.eq(index+1).addClass('active');
           $explain.eq(index+1).addClass('active');
       }
   }
@@ -308,22 +304,5 @@
     console.log($(this).index());
     $(this).addClass('active').siblings().removeClass('active');
   });
-
-  $('[data-toggle="popover-kid-1"]').popover({
-    template: '<img src="../img/brand/kid/detail_1.png" class="detail_pic left" id="kid1">'
-  })
-  $('[data-toggle="popover-kid-2"]').popover({
-    template: '<img src="../img/brand/kid/detail_2.png" class="detail_pic left">'
-  })
-  $('[data-toggle="popover-kid-3"]').popover({
-    template: '<img src="../img/brand/kid/detail_3.png" class="detail_pic left">'
-  })
-  $('[data-toggle="popover-kid-4"]').popover({
-    template: '<img src="../img/brand/kid/detail_4.png" class="detail_pic right">'
-  })
-  $('[data-toggle="popover-kid-5"]').popover({
-    template: '<img src="../img/brand/kid/detail_5.png" class="detail_pic right">'
-  })
-
 
 })(jQuery);

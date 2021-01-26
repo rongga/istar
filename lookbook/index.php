@@ -147,13 +147,14 @@
             for ($row=0; $row<intval($last_num/3);$row++){
               echo '<div class="row">';
                 for ($col=0; $col<3; $col++){
+                  $this_dir = $img_dir[$dir_start+$dir_cnt];
                   echo
                   '<div class="col-lg-4">
                       <div class="thumbnail">
-                        <a href="../lkw-1.html">
-                          <img src="../img/lookbook/kiddyange/winter/lkw-1/t.jpg" alt="">
+                        <a href="./detail.php?brand='.$brand.'&season='.$season.'&name='.$this_dir.'">
+                          <img src="../img/lookbook/'.$brand.'/'.$season.'/'.$this_dir.'/thumbnail.jpg" alt="">
                           <div class="caption">
-                            <h4 style="text-align:center;">'.$img_dir[$dir_start+$dir_cnt].'</h4>
+                            <h4 style="text-align:center;">'.$this_dir.'</h4>
                           </div>
                         </a>
                       </div>
@@ -168,7 +169,7 @@
                 '<div class="col-lg-4">
                     <div class="thumbnail">
                       <a href="../lkw-1.html">
-                        <img src="../img/lookbook/kiddyange/winter/lkw-1/t.jpg" alt="">
+                        <img src="../img/lookbook/'.$brand.'/'.$season.'/'.$img_dir[$dir_start+$dir_cnt].'/thumbnail.jpg" alt="">
                         <div class="caption">
                           <h4 style="text-align:center;">'.$img_dir[$dir_start+$dir_cnt].'</h4>
                         </div>
@@ -186,7 +187,7 @@
                   '<div class="col-lg-4">
                       <div class="thumbnail">
                         <a href="../lkw-1.html">
-                          <img src="../img/lookbook/kiddyange/winter/lkw-1/t.jpg" alt="">
+                          <img src="../img/lookbook/'.$brand.'/'.$season.'/'.$img_dir[$dir_start+$dir_cnt].'/thumbnail.jpg" alt="">
                           <div class="caption">
                             <h4 style="text-align:center;">'.$img_dir[$dir_start+$dir_cnt].'</h4>
                           </div>

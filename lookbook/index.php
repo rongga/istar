@@ -117,8 +117,18 @@
         <input type="submit">
     </form>
     <?php
-    $brand = $_GET['brand'];
-    $season = $_GET['season'];
+    $brand = 'kid';
+    if (isset($_GET['brand'])){
+      $brand = $_GET['brand'];
+    }
+    $season = 'win';
+    if (isset($_GET['season'])){
+      $season = $_GET['season'];
+    }
+    $this_page = '1';
+    if (isset($_GET['page'])){
+      $this_page=$_GET['page'];
+    };
     $img_dir = scandir('../img/lookbook/'.$brand.'/'.$season);
     $img_dir = array_splice($img_dir, 2, count($img_dir));
     natsort($img_dir);
@@ -126,9 +136,9 @@
     $dir_num = count($img_dir);
     $dir_cnt = 0;
     $last_page = intval($dir_num/12)+1;
-    $this_page = $_GET['page'];
     $this_page = ($this_page > $last_page)?$last_page:$this_page;
-    $dir_start=12*($this_page-1);?>
+    $dir_start=12*($this_page-1);
+    ?>
     <div class="banner-section spad">
         <div class="container-fluid">
           <?php

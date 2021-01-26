@@ -117,152 +117,77 @@
         <input type="submit">
     </form>
     <?php
-    $img_dir = scandir('../img/lookbook/'.$_GET['brand'].'/'.$_GET['season']);
+    $brand = $_GET['brand'];
+    $season = $_GET['season'];
+    $img_dir = scandir('../img/lookbook/'.$brand.'/'.$season);
     $img_dir = array_splice($img_dir, 2, count($img_dir));
-
-    $cnt=0;
-    for ($i=0; $i<intval(count($img_dir)/3); $i++) {
-      echo "row<br>";
-      for ($j=0;$j<3;$j++){
-        echo $img_dir[$cnt]."<br>";
-        $cnt++;
-      }
-    }
-    echo "row<br>";
-    for ($i=0;$i<=$img_dir%3;$i++){
-      echo $img_dir[$cnt]."<br>";
-      $cnt++;
-    }?>
+    natsort($img_dir);
+    $img_dir = array_values($img_dir);
+    $dir_num = count($img_dir);
+    $dir_cnt = 0;
+    $last_page = intval($dir_num/12)+1;
+    $this_page = $_GET['page'];
+    $this_page = ($this_page > $last_page)?$last_page:$this_page;
+    $dir_start=12*($this_page-1);?>
     <div class="banner-section spad">
         <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-4">
+          <?php
+          if ($this_page == $last_page) {
+            $last_num = $dir_num%12;
+            for ($row=0; $row<intval($last_num/3);$row++){
+              echo '<div class="row">';
+                for ($col=0; $col<3; $col++){
+                  echo
+                  '<div class="col-lg-4">
+                      <div class="thumbnail">
+                        <a href="../lkw-1.html">
+                          <img src="../img/lookbook/kiddyange/winter/lkw-1/t.jpg" alt="">
+                          <div class="caption">
+                            <h4 style="text-align:center;">'.$img_dir[$dir_start+$dir_cnt].'</h4>
+                          </div>
+                        </a>
+                      </div>
+                  </div>';
+                  $dir_cnt++;
+                }
+              echo '</div>';
+            }
+            echo '<div class="row">';
+              for ($i=0; $i<$last_num%3; $i++) {
+                echo
+                '<div class="col-lg-4">
                     <div class="thumbnail">
                       <a href="../lkw-1.html">
                         <img src="../img/lookbook/kiddyange/winter/lkw-1/t.jpg" alt="">
                         <div class="caption">
-                          <h4 style="text-align:center;">룩북1</h4>
+                          <h4 style="text-align:center;">'.$img_dir[$dir_start+$dir_cnt].'</h4>
                         </div>
                       </a>
                     </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="thumbnail">
-                      <a href="../#">
-                        <img src="../img/lookbook/kiddyange/winter/banner-1.png" alt="">
-                        <div class="caption">
-                          <h4 style="text-align:center;">룩북2</h4>
-                        </div>
-                      </a>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="thumbnail">
-                      <a href="../#">
-                        <img src="../img/lookbook/kiddyange/winter/banner-1.png" alt="">
-                        <div class="caption">
-                          <h4 style="text-align:center;">룩북3</h4>
-                        </div>
-                      </a>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-4">
-                    <div class="thumbnail">
-                      <a href="../#">
-                        <img src="../img/lookbook/kiddyange/winter/banner-1.png" alt="">
-                        <div class="caption">
-                          <h4 style="text-align:center;">룩북4</h4>
-                        </div>
-                      </a>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="thumbnail">
-                      <a href="../#">
-                        <img src="../img/lookbook/kiddyange/winter/banner-1.png" alt="">
-                        <div class="caption">
-                          <h4 style="text-align:center;">룩북5</h4>
-                        </div>
-                      </a>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="thumbnail">
-                      <a href="../#">
-                        <img src="../img/lookbook/kiddyange/winter/banner-1.png" alt="">
-                        <div class="caption">
-                          <h4 style="text-align:center;">룩북6</h4>
-                        </div>
-                      </a>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-4">
-                    <div class="thumbnail">
-                      <a href="../#">
-                        <img src="../img/lookbook/kiddyange/winter/banner-1.png" alt="">
-                        <div class="caption">
-                          <h4 style="text-align:center;">룩북7</h4>
-                        </div>
-                      </a>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="thumbnail">
-                      <a href="../#">
-                        <img src="../img/lookbook/kiddyange/winter/banner-1.png" alt="">
-                        <div class="caption">
-                          <h4 style="text-align:center;">룩북8</h4>
-                        </div>
-                      </a>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="thumbnail">
-                      <a href="../#">
-                        <img src="../img/lookbook/kiddyange/winter/banner-1.png" alt="">
-                        <div class="caption">
-                          <h4 style="text-align:center;">룩북9</h4>
-                        </div>
-                      </a>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-4">
-                    <div class="thumbnail">
-                      <a href="../#">
-                        <img src="../img/lookbook/kiddyange/winter/banner-1.png" alt="">
-                        <div class="caption">
-                          <h4 style="text-align:center;">룩북10</h4>
-                        </div>
-                      </a>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="thumbnail">
-                      <a href="../#">
-                        <img src="../img/lookbook/kiddyange/winter/banner-1.png" alt="">
-                        <div class="caption">
-                          <h4 style="text-align:center;">룩북11</h4>
-                        </div>
-                      </a>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="thumbnail">
-                      <a href="../#">
-                        <img src="../img/lookbook/kiddyange/winter/banner-1.png" alt="">
-                        <div class="caption">
-                          <h4 style="text-align:center;">룩북12</h4>
-                        </div>
-                      </a>
-                    </div>
-                </div>
-            </div>
+                </div>';
+                $dir_cnt++;
+              }
+            echo '</div>';
+          }else {
+            for ($row=0; $row<4; $row++){
+              echo '<div class="row">';
+                for ($col=0; $col<3; $col++){
+                  echo
+                  '<div class="col-lg-4">
+                      <div class="thumbnail">
+                        <a href="../lkw-1.html">
+                          <img src="../img/lookbook/kiddyange/winter/lkw-1/t.jpg" alt="">
+                          <div class="caption">
+                            <h4 style="text-align:center;">'.$img_dir[$dir_start+$dir_cnt].'</h4>
+                          </div>
+                        </a>
+                      </div>
+                  </div>';
+                  $dir_cnt++;
+                }
+              echo '</div>';
+            }
+          }?>
         </div>
     </div>
     <nav aria-label="Page navigation" align="center">
@@ -272,11 +197,11 @@
             <span aria-hidden="true">&laquo;</span>
           </a>
         </li>
-        <li><a href="../#">1</a></li>
-        <li><a href="../#">2</a></li>
-        <li><a href="../#">3</a></li>
-        <li><a href="../#">4</a></li>
-        <li><a href="../#">5</a></li>
+        <?php
+        $page_num = ceil($dir_num/12);
+        for ($page_i=1; $page_i<=$page_num; $page_i++){
+          echo '<li><a href="./?brand='.$brand.'&season='.$season.'&page='.$page_i.'">'.$page_i.'</a></li>';
+        }?>
         <li>
           <a href="../#" aria-label="Next">
             <span aria-hidden="true">&raquo;</span>

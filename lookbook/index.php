@@ -129,11 +129,33 @@
     if (isset($_GET['page'])){
       $this_page=$_GET['page'];
     };
-    $img_dir = scandir('../img/lookbook/'.$brand.'/'.$season);
-    $img_dir = array_splice($img_dir, 2, count($img_dir));
-    natsort($img_dir);
-    $img_dir = array_values($img_dir);
-    $dir_num = count($img_dir);
+    $path = '../img/lookbook/'.$brand.'/'.$season;
+    $item_list = array();
+    class lb_item
+    {
+      function __construct($name, $order){
+        $this->name = $name;
+        $this->order = $order;
+      }
+    }
+    if(($handle=fopen($path.'/order.csv', 'r')) !== FALSE){
+      while (($data=fgetcsv($handle, 1000, ','))!==FALSE) {
+        array_push($item_list, new lb_item($data[0], $data[1]));
+      }
+      fclose($handle);
+    }
+    usort($item_list, function($a, $b){
+    	if($a->order == $b->order){
+    		return 0;
+    	}
+    	if($a->order > $b->order){
+    		return 1;
+    	}
+    	if($a->order < $b->order){
+    		return -1;
+    	}
+    });
+    $dir_num = count($item_list);
     $dir_cnt = 0;
     $last_page = intval($dir_num/12)+1;
     $this_page = ($this_page > $last_page)?$last_page:$this_page;
@@ -147,7 +169,7 @@
             for ($row=0; $row<intval($last_num/3);$row++){
               echo '<div class="row">';
                 for ($col=0; $col<3; $col++){
-                  $this_dir = $img_dir[$dir_start+$dir_cnt];
+                  $this_dir = $item_list[$dir_start+$dir_cnt]->name;
                   echo
                   '<div class="col-lg-4">
                       <div class="thumbnail">
@@ -163,15 +185,16 @@
                 }
               echo '</div>';
             }
+            $this_dir = $item_list[$dir_start+$dir_cnt]->name;
             echo '<div class="row">';
               for ($i=0; $i<$last_num%3; $i++) {
                 echo
                 '<div class="col-lg-4">
                     <div class="thumbnail">
                       <a href="../lkw-1.html">
-                        <img src="../img/lookbook/'.$brand.'/'.$season.'/'.$img_dir[$dir_start+$dir_cnt].'/thumbnail.jpg" alt="">
+                        <img src="../img/lookbook/'.$brand.'/'.$season.'/'.$this_dir.'/thumbnail.jpg" alt="">
                         <div class="caption">
-                          <h4 style="text-align:center;">'.$img_dir[$dir_start+$dir_cnt].'</h4>
+                          <h4 style="text-align:center;">'.$this_dir.'</h4>
                         </div>
                       </a>
                     </div>
@@ -183,13 +206,14 @@
             for ($row=0; $row<4; $row++){
               echo '<div class="row">';
                 for ($col=0; $col<3; $col++){
+                  $this_dir = $item_list[$dir_start+$dir_cnt]->name;
                   echo
                   '<div class="col-lg-4">
                       <div class="thumbnail">
                         <a href="../lkw-1.html">
-                          <img src="../img/lookbook/'.$brand.'/'.$season.'/'.$img_dir[$dir_start+$dir_cnt].'/thumbnail.jpg" alt="">
+                          <img src="../img/lookbook/'.$brand.'/'.$season.'/'.$this_dir.'/thumbnail.jpg" alt="">
                           <div class="caption">
-                            <h4 style="text-align:center;">'.$img_dir[$dir_start+$dir_cnt].'</h4>
+                            <h4 style="text-align:center;">'.$this_dir.'</h4>
                           </div>
                         </a>
                       </div>

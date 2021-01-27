@@ -101,17 +101,6 @@
   </header>
     <!-- Header End -->
 
-    <!-- Hero Section Begin -->
-    <div class="lb-content">
-        <img src="../img/lookbook/kiddyange/winter/main.jpg">
-    <!-- Hero Section End -->
-    <div class="container" style="margin:5px;">
-      <ul class="nav nav-tabs">
-        <li role="presentation" class="active"><a href="../#">KiDDYANGE Winter</a></li>
-        <li role="presentation"><a href="../lookbook-kiddyange-summer.html">KiDDYANGE Summer</a></li>
-      </ul>
-    </div>
-    <!-- Banner Section Begin -->
     <form action="add_lookbook.php" method="post">
       <input type="hidden" name="page" value="<?php echo basename($_SERVER['PHP_SELF']); ?>">
         <input type="submit">
@@ -131,8 +120,14 @@
     }else {
       print "<script language=javascript> alert('잘못된 접근입니다'); history.back(-2); </script>";
     }
-    ?>
-</div>
+
+    $path = '../img/lookbook/'.$brand.'/'.$season.'/'.$name;
+    $imgs = scandir($path);
+    $imgs = array_splice($imgs, 2, count($imgs)-3);
+    
+    foreach ($imgs as $value) {
+      echo '<img src="'.$path.'/'.$value.'">';
+    }?>
     <!-- Banner Section End -->
     <!-- Footer Section Begin -->
     <footer class="footer-section">

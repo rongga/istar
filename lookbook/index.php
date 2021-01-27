@@ -1,3 +1,68 @@
+<?php
+//get GET values
+$brand = 'kid';
+if (isset($_GET['brand'])){
+  $brand = $_GET['brand'];
+}
+$season = 'win';
+if (isset($_GET['season'])){
+  $season = $_GET['season'];
+}
+$this_page = '1';
+if (isset($_GET['page'])){
+  $this_page=$_GET['page'];
+};
+
+$path = '../img/lookbook/'.$brand.'/'.$season;
+$item_list = array();
+
+//open order.csv
+if(($handle=fopen('./'.$brand.'/'.$season.'/order.csv', 'r')) !== FALSE){
+  while (($data=fgetcsv($handle, 1000, ','))!==FALSE) {
+    array_push($item_list, ['name'=>$data[0], 'order'=>$data[1]]);
+  }
+  fclose($handle);
+}
+
+//sort to order
+usort($item_list, function($a, $b){
+  if($a['order'] == $b['order']){
+    return 0;
+  }
+  if($a['order'] > $b['order']){
+    return 1;
+  }
+  if($a['order'] < $b['order']){
+    return -1;
+  }
+});
+
+//update order.csv
+$name_list=[];
+foreach ($item_list as $row) {
+  $name_list[]=$row['name'];
+}
+$img_dir = scandir($path);
+$img_dir = array_splice($img_dir, 2, count($img_dir));
+foreach ($img_dir as $value) {
+  if (array_search($value, $name_list)===FALSE){
+    $item_list[] = ['name'=>$value, 'order'=>$item_list[count($item_list)-1]['order']+1];
+  };
+}
+$file = fopen('./'.$brand.'/'.$season.'/order.csv', 'w');
+if($file){
+  foreach ($item_list as $key => $val){
+    fputcsv($file, $val);
+  }
+}
+fclose($file);
+
+$dir_num = count($item_list);
+$dir_cnt = 0;
+$last_page = intval($dir_num/12)+1;
+$this_page = ($this_page > $last_page)?$last_page:$this_page;
+$dir_start=12*($this_page-1);
+?>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -103,7 +168,7 @@
 
     <!-- Hero Section Begin -->
     <div class="lb-content">
-        <img src="../img/lookbook/kiddyange/winter/main.jpg">
+        <img src="<?php echo $path; ?>/main.jpg">
     <!-- Hero Section End -->
     <div class="container" style="margin:5px;">
       <ul class="nav nav-tabs">
@@ -112,55 +177,7 @@
       </ul>
     </div>
     <!-- Banner Section Begin -->
-    <form action="add_lookbook.php" method="post">
-      <input type="hidden" name="page" value="<?php echo basename($_SERVER['PHP_SELF']); ?>">
-        <input type="submit">
-    </form>
-    <?php
-    $brand = 'kid';
-    if (isset($_GET['brand'])){
-      $brand = $_GET['brand'];
-    }
-    $season = 'win';
-    if (isset($_GET['season'])){
-      $season = $_GET['season'];
-    }
-    $this_page = '1';
-    if (isset($_GET['page'])){
-      $this_page=$_GET['page'];
-    };
-    $path = '../img/lookbook/'.$brand.'/'.$season;
-    $item_list = array();
-    class lb_item
-    {
-      function __construct($name, $order){
-        $this->name = $name;
-        $this->order = $order;
-      }
-    }
-    if(($handle=fopen($path.'/order.csv', 'r')) !== FALSE){
-      while (($data=fgetcsv($handle, 1000, ','))!==FALSE) {
-        array_push($item_list, new lb_item($data[0], $data[1]));
-      }
-      fclose($handle);
-    }
-    usort($item_list, function($a, $b){
-    	if($a->order == $b->order){
-    		return 0;
-    	}
-    	if($a->order > $b->order){
-    		return 1;
-    	}
-    	if($a->order < $b->order){
-    		return -1;
-    	}
-    });
-    $dir_num = count($item_list);
-    $dir_cnt = 0;
-    $last_page = intval($dir_num/12)+1;
-    $this_page = ($this_page > $last_page)?$last_page:$this_page;
-    $dir_start=12*($this_page-1);
-    ?>
+
     <div class="banner-section spad">
         <div class="container-fluid">
           <?php
@@ -169,7 +186,7 @@
             for ($row=0; $row<intval($last_num/3);$row++){
               echo '<div class="row">';
                 for ($col=0; $col<3; $col++){
-                  $this_dir = $item_list[$dir_start+$dir_cnt]->name;
+                  $this_dir = $item_list[$dir_start+$dir_cnt]['name'];
                   echo
                   '<div class="col-lg-4">
                       <div class="thumbnail">
@@ -185,13 +202,13 @@
                 }
               echo '</div>';
             }
-            $this_dir = $item_list[$dir_start+$dir_cnt]->name;
             echo '<div class="row">';
               for ($i=0; $i<$last_num%3; $i++) {
+                $this_dir = $item_list[$dir_start+$dir_cnt]['name'];
                 echo
                 '<div class="col-lg-4">
                     <div class="thumbnail">
-                      <a href="../lkw-1.html">
+                      <a href="./detail.php?brand='.$brand.'&season='.$season.'&name='.$this_dir.'">
                         <img src="../img/lookbook/'.$brand.'/'.$season.'/'.$this_dir.'/thumbnail.jpg" alt="">
                         <div class="caption">
                           <h4 style="text-align:center;">'.$this_dir.'</h4>
@@ -206,11 +223,11 @@
             for ($row=0; $row<4; $row++){
               echo '<div class="row">';
                 for ($col=0; $col<3; $col++){
-                  $this_dir = $item_list[$dir_start+$dir_cnt]->name;
+                  $this_dir = $item_list[$dir_start+$dir_cnt]['name'];
                   echo
                   '<div class="col-lg-4">
                       <div class="thumbnail">
-                        <a href="../lkw-1.html">
+                        <a href="./detail.php?brand='.$brand.'&season='.$season.'&name='.$this_dir.'">
                           <img src="../img/lookbook/'.$brand.'/'.$season.'/'.$this_dir.'/thumbnail.jpg" alt="">
                           <div class="caption">
                             <h4 style="text-align:center;">'.$this_dir.'</h4>

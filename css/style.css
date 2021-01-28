@@ -980,7 +980,24 @@ Brand
 .brand-fn .stars.com .star-content:nth-child(3).active .detail_pic {display: block;top:-500%;left: 30%;}
 .brand-fn .stars.com .star-content:nth-child(4).active .detail_pic {display: block;top:-300%;left: -80%;}
 
+.carousel.slide.brand {
+	display: none;
+	margin-top: 50px;
+}
+.carousel.slide.brand .carousel-control {
+	background: none;
 
+}
+.carousel.slide.brand .carousel-control .glyphicon {
+	color: gray;
+}
+@media screen and (min-width: 1101px) and (max-width: 1300px) {
+	.brand-fn .stars.kid .star-content:nth-child(1).active .detail_pic {right: 150%;}
+	.brand-fn .stars.kid .star-content:nth-child(2).active .detail_pic {right: 230%;}
+	.brand-fn .stars.kid .star-content:nth-child(3).active .detail_pic {right: 230%;}
+	.brand-fn .stars.kid .star-content:nth-child(4).active .detail_pic {left: 150%;}
+	.brand-fn .stars.kid .star-content:nth-child(5).active .detail_pic {left: -20%;}
+}
 @media screen and (max-width: 1300px) {
 	.brand-fn .stars-kid .star-content:nth-child(1) {top:18%;right:58%;}
 	.brand-fn .stars-kid .star-content:nth-child(2) {top:19%;right:53%;}
@@ -1012,10 +1029,16 @@ Brand
 	.brand-fn .stars.com .star-content:nth-child(3) {top:33%;right:35%;}
 	.brand-fn .stars.com .star-content:nth-child(4) {top:63%;right:30%;}
 	.brand-fn .stars.com .star-content:nth-child(1).active .detail_pic {display: block;top:-300%;right: -70%;}
+}
+@media screen and (max-width: 640px) {
 
+	.carousel.slide.brand {
+		display: block;
+	}
+
+	.detail_pic {display: none!important;}
 
 }
-
 
 
 

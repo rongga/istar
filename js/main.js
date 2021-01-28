@@ -299,10 +299,42 @@
   /*
   brand-fn
   */
-  var $star = $('.brand-fn .stars .star-content');
+  var $star = $('.brand-fn .stars .star-content'),
+      $carousel = $('.carousel.slide.brand'),
+      $car_item = $('.carousel.slide.brand .carousel-inner .item'),
+      $left_button = $('.carousel.slide.brand .left'),
+      $right_button = $('.carousel.slide.brand .right');
+
+  $carousel.carousel({
+    interval: 0
+  });
+
   $star.on('click', function(){
-    console.log($(this).index());
     $(this).addClass('active').siblings().removeClass('active');
+    var index = $(this).index();
+    $car_item.eq(index).addClass('active').siblings().removeClass('active');
+  });
+
+  $left_button.on('click',function(){
+    var index = $('.carousel.slide.brand .carousel-inner .item.active').index(),
+        siblings_num = $car_item.siblings().length;
+    $carousel.carousel('prev');
+    if (index == 0){
+      $star.eq(siblings_num-1).addClass('active').siblings().removeClass('active');
+    }else {
+      $star.eq(index-1).addClass('active').siblings().removeClass('active');
+    }
+  });
+
+  $right_button.on('click',function(){
+    var index = $('.carousel.slide.brand .carousel-inner .item.active').index(),
+        siblings_num = $car_item.siblings().length;
+    $carousel.carousel('next');
+    if (index == siblings_num-1){
+      $star.eq(0).addClass('active').siblings().removeClass('active');
+    }else {
+      $star.eq(index+1).addClass('active').siblings().removeClass('active');
+    }
   });
 
 })(jQuery);

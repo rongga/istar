@@ -758,6 +758,7 @@ ol {
 
 .nav-item .logo {
 		max-width: 130px;
+		min-width: 130px;
 		margin: auto;
 }
 
@@ -949,32 +950,32 @@ Brand
 .brand-fn .stars .star-content.active .star-pic .yellow {display: block;}
 .brand-fn .stars .star-content .detail_pic {display: none;position: absolute;width: 1300%;max-width: 707px;}
 
-.brand-fn .stars.kid .star-content:nth-child(1) {top:18%;right:56%;}
-.brand-fn .stars.kid .star-content:nth-child(2) {top:19%;right:52%;}
-.brand-fn .stars.kid .star-content:nth-child(3) {top:43%;right:53%;}
-.brand-fn .stars.kid .star-content:nth-child(4) {top:40%;right:40%;}
-.brand-fn .stars.kid .star-content:nth-child(5) {top:55%;right:33%;}
+.brand-fn .stars.kid .star-content:nth-child(1) {top:19%;right:53.5%;}
+.brand-fn .stars.kid .star-content:nth-child(2) {top:19%;right:50.5%;}
+.brand-fn .stars.kid .star-content:nth-child(3) {top:43%;right:51%;}
+.brand-fn .stars.kid .star-content:nth-child(4) {top:40%;right:41.5%;}
+.brand-fn .stars.kid .star-content:nth-child(5) {top:55%;right:36.5%;}
 .brand-fn .stars.kid .star-content:nth-child(1).active .detail_pic {display: block;top:-100%;right: 50%;}
 .brand-fn .stars.kid .star-content:nth-child(2).active .detail_pic {display: block;top:50%;right: 180%;}
 .brand-fn .stars.kid .star-content:nth-child(3).active .detail_pic {display: block;top:-100%;right: 150%;}
 .brand-fn .stars.kid .star-content:nth-child(4).active .detail_pic {display: block;top:-200%;left: 50%;}
 .brand-fn .stars.kid .star-content:nth-child(5).active .detail_pic {display: block;top:-200%;left: -80%;}
 
-.brand-fn .stars.lian .star-content:nth-child(1) {top:19%;right:53%;}
-.brand-fn .stars.lian .star-content:nth-child(2) {top:47.5%;right:57%;}
-.brand-fn .stars.lian .star-content:nth-child(3) {top:68%;right:57%;}
-.brand-fn .stars.lian .star-content:nth-child(4) {top:18%;right:38%;}
-.brand-fn .stars.lian .star-content:nth-child(5) {top:70%;right:35%;}
+.brand-fn .stars.lian .star-content:nth-child(1) {top:19%;right:52%;}
+.brand-fn .stars.lian .star-content:nth-child(2) {top:47.5%;right:55%;}
+.brand-fn .stars.lian .star-content:nth-child(3) {top:68%;right:55%;}
+.brand-fn .stars.lian .star-content:nth-child(4) {top:18%;right:40%;}
+.brand-fn .stars.lian .star-content:nth-child(5) {top:70%;right:38%;}
 .brand-fn .stars.lian .star-content:nth-child(1).active .detail_pic {display: block;top:-300%;right: 200%;}
 .brand-fn .stars.lian .star-content:nth-child(2).active .detail_pic {display: block;top:-400%;right: 100%;}
 .brand-fn .stars.lian .star-content:nth-child(3).active .detail_pic {display: block;top:-500%;right: 100%;}
 .brand-fn .stars.lian .star-content:nth-child(4).active .detail_pic {display: block;top:-200%;left: 50%;}
 .brand-fn .stars.lian .star-content:nth-child(5).active .detail_pic {display: block;top:-500%;left: 0%;}
 
-.brand-fn .stars.com .star-content:nth-child(1) {top:30%;right:60%;}
-.brand-fn .stars.com .star-content:nth-child(2) {top:63%;right:54%;}
-.brand-fn .stars.com .star-content:nth-child(3) {top:33%;right:37.5%;}
-.brand-fn .stars.com .star-content:nth-child(4) {top:63%;right:33%;}
+.brand-fn .stars.com .star-content:nth-child(1) {top:30%;right:57%;}
+.brand-fn .stars.com .star-content:nth-child(2) {top:63%;right:52%;}
+.brand-fn .stars.com .star-content:nth-child(3) {top:33%;right:39.5%;}
+.brand-fn .stars.com .star-content:nth-child(4) {top:63%;right:36.5%;}
 .brand-fn .stars.com .star-content:nth-child(1).active .detail_pic {display: block;top:-300%;right: 10%;}
 .brand-fn .stars.com .star-content:nth-child(2).active .detail_pic {display: block;top:-400%;right: 130%;}
 .brand-fn .stars.com .star-content:nth-child(3).active .detail_pic {display: block;top:-500%;left: 30%;}
@@ -990,6 +991,43 @@ Brand
 }
 .carousel.slide.brand .carousel-control .glyphicon {
 	color: gray;
+}
+@media screen and (max-width: 1800px){
+	.brand-fn .stars.kid .star-content:nth-child(1) {top:19%;right:55%;}
+	.brand-fn .stars.kid .star-content:nth-child(2) {top:19%;right:51%;}
+	.brand-fn .stars.kid .star-content:nth-child(3) {top:43%;right:52%;}
+	.brand-fn .stars.kid .star-content:nth-child(4) {top:40%;right:40%;}
+	.brand-fn .stars.kid .star-content:nth-child(5) {top:55%;right:35%;}
+
+	.brand-fn .stars.lian .star-content:nth-child(1) {top:19%;right:52%;}
+	.brand-fn .stars.lian .star-content:nth-child(2) {top:47.5%;right:56%;}
+	.brand-fn .stars.lian .star-content:nth-child(3) {top:68%;right:56%;}
+	.brand-fn .stars.lian .star-content:nth-child(4) {top:18%;right:39%;}
+	.brand-fn .stars.lian .star-content:nth-child(5) {top:70%;right:37%;}
+
+	.brand-fn .stars.com .star-content:nth-child(1) {top:30%;right:58%;}
+	.brand-fn .stars.com .star-content:nth-child(2) {top:63%;right:52%;}
+	.brand-fn .stars.com .star-content:nth-child(3) {top:33%;right:38.5%;}
+	.brand-fn .stars.com .star-content:nth-child(4) {top:63%;right:35%;}
+}
+
+@media screen and (max-width: 1600px){
+	.brand-fn .stars.kid .star-content:nth-child(1) {top:18%;right:56%;}
+	.brand-fn .stars.kid .star-content:nth-child(2) {top:19%;right:52%;}
+	.brand-fn .stars.kid .star-content:nth-child(3) {top:43%;right:53%;}
+	.brand-fn .stars.kid .star-content:nth-child(4) {top:40%;right:40%;}
+	.brand-fn .stars.kid .star-content:nth-child(5) {top:55%;right:33%;}
+
+	.brand-fn .stars.lian .star-content:nth-child(1) {top:19%;right:53%;}
+	.brand-fn .stars.lian .star-content:nth-child(2) {top:47.5%;right:57%;}
+	.brand-fn .stars.lian .star-content:nth-child(3) {top:68%;right:57%;}
+	.brand-fn .stars.lian .star-content:nth-child(4) {top:18%;right:38%;}
+	.brand-fn .stars.lian .star-content:nth-child(5) {top:70%;right:35%;}
+
+	.brand-fn .stars.com .star-content:nth-child(1) {top:30%;right:60%;}
+	.brand-fn .stars.com .star-content:nth-child(2) {top:63%;right:54%;}
+	.brand-fn .stars.com .star-content:nth-child(3) {top:33%;right:37.5%;}
+	.brand-fn .stars.com .star-content:nth-child(4) {top:63%;right:33%;}
 }
 @media screen and (min-width: 1101px) and (max-width: 1300px) {
 	.brand-fn .stars.kid .star-content:nth-child(1).active .detail_pic {right: 150%;}
@@ -3580,7 +3618,7 @@ Brand
 		padding: 16px 12px 12px 11px;
 	}
 	.nav-item #logo-container {
-		margin-top: 20px;
+		margin-top: 10px;
 	}
 	.nav-item .logo {
 			max-width: 180px;
@@ -3650,6 +3688,12 @@ Brand
 }
 
 @media only screen and (max-width: 991px) {
+	.nav-item .logo {
+			min-width: 100px;
+	}
+	.nav-item #logo-container {
+		margin-top: 10px;
+	}
 	.banner-section {
 		padding: 80px 0 50px;
 	}
@@ -4107,7 +4151,10 @@ Brand
 .look_picture .look_pic_page:nth-child(4) .img_box .sub {position:absolute;top:-28%;right:-65%;width:880px;height:747px;background:url('../img/main/fn/back_sub.png') no-repeat center top;background-size:contain;}
 .look_picture .look_pic_page:nth-child(4)  .img_box .logo {position:absolute;top:63%;right:-17%;width:81px;height:220px;background:url('../img/main/fn/back_logo.png') no-repeat center top;background-size:contain;}
 
-
+@media screen and (min-width:1680px) {
+	.look_change .look_menu {margin-top: 3%; margin-right:20%;}
+	.look_picture .look_pic_page .img_box {margin: 0 23% 40px;}
+}
 @media screen and (max-width:1480px) {
 	.look_change .look_menu {margin-top:5%;margin-right: 6%;}
 }

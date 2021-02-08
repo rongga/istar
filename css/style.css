@@ -3608,6 +3608,19 @@ Brand
 	color: #6B6B6B;
 }
 
+.media-contents .main .vid {width: 50%; height: 325px;margin: auto;}
+.media-contents .sub div {width: 25%; margin: 50px 0px 100px 0px;}
+@media only screen and (max-width: 991px){
+	.media-contents .main .vid {height: 200px;}
+	.media-contents .sub div {height: 90px;}
+}
+@media only screen and (max-width: 767px){
+	.media-contents .main .vid {margin-bottom: 50px;}
+}
+@media only screen and (max-width: 568px){
+	.media-contents .main .vid {height: 150px;}
+	.media-contents .sub div {height: 70px;}
+}
 /* ------------------------------ Responsive Media Styles ---------------------------- */
 
 @media only screen and (min-width: 1200px) and (max-width: 1920px) {

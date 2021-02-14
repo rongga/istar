@@ -13,9 +13,8 @@
   <body>
     <?php
       if ( $jb_login ) {
-    ?>
-      <h1>이미 로그인하셨습니다.</h1>
-    <?php
+        echo "<script language=javascript> alert('이미 로그인 하셨습니다');</script>";
+        echo '<script>window.location.replace("/index.html")</script>';
       } else {
     ?>
       <h1>로그인</h1>

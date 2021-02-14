@@ -1,5 +1,6 @@
 <?php
 //get GET values
+session_start();
 $brand = 'kid';
 if (isset($_GET['brand'])){
   $brand = $_GET['brand'];
@@ -13,13 +14,22 @@ if (isset($_GET['page'])){
   $this_page=$_GET['page'];
 };
 
-$path = '../img/lookbook/'.$brand.'/'.$season;
+$path = '../img/lookbook/'.$brand.'/'.$season.'/';
 $item_list = array();
 
 //open order.csv
+$cnt=0;
 if(($handle=fopen('./'.$brand.'/'.$season.'/order.csv', 'r')) !== FALSE){
   while (($data=fgetcsv($handle, 1000, ','))!==FALSE) {
-    array_push($item_list, ['name'=>$data[0], 'order'=>$data[1]]);
+    if ($cnt==0){
+      array_push($item_list, ['name'=>substr($data[0], 3), 'order'=>$data[1]]);
+      $cnt++;
+    }
+    else{
+      $cnt++;
+      array_push($item_list, ['name'=>$data[0], 'order'=>$data[1]]);
+
+    }
   }
   fclose($handle);
 }
@@ -30,26 +40,27 @@ usort($item_list, function($a, $b){
     return 0;
   }
   if($a['order'] > $b['order']){
-    return 1;
+    return -1;
   }
   if($a['order'] < $b['order']){
-    return -1;
+    return 1;
   }
 });
 
-//update order.csv
+// update order.csv
 $name_list=[];
 foreach ($item_list as $row) {
   $name_list[]=$row['name'];
 }
-$img_dir = scandir($path);
+$img_dir = scandir($path.'/looks');
 $img_dir = array_splice($img_dir, 2, count($img_dir));
 foreach ($img_dir as $value) {
   if (array_search($value, $name_list)===FALSE){
-    $item_list[] = ['name'=>$value, 'order'=>$item_list[count($item_list)-1]['order']+1];
+    $item_list[] = ['name'=>$value, 'order'=>$item_list[0]['order']+1];
   };
 }
 $file = fopen('./'.$brand.'/'.$season.'/order.csv', 'w');
+fputs($file, "\xEF\xBB\xBF");
 if($file){
   foreach ($item_list as $key => $val){
     fputcsv($file, $val);
@@ -110,7 +121,7 @@ $dir_start=12*($this_page-1);
                 <div class="col-md-8 col-xs-10" style="padding-left:0px; padding-right:0px">
                   <nav class="nav-menu mobile-menu">
                       <ul>
-                          <li><a href="../intro.html">ISTAR</a>
+                          <li><a href="./intro.html">ISTAR</a>
                               <ul class="dropdown">
                                   <li><a href="../intro.html">회사소개</a></li>
                                   <li><a href="../ceo.html">CEO 인사</a></li>
@@ -119,45 +130,45 @@ $dir_start=12*($this_page-1);
                                   <li><a href="../companyroot.html">오시는길</a></li>
                               </ul>
                           </li>
-                          <li><a href="../#">BRAND</a>
+                          <li><a href="../brand-kiddyange.html">BRAND</a>
                               <ul class="dropdown">
                                   <li><a href="../brand-kiddyange.html">키디앙쥬</a></li>
-                                  <li><a href="../#">리앙뜨</a></li>
-                                  <li><a href="../#">꼬미앤조</a></li>
+                                  <li><a href="../brand-lian.html">리앙뜨</a></li>
+                                  <li><a href="../brand-com.html">꼬미앤조</a></li>
                               </ul>
                           </li>
-                          <li><a href="../lookbook-kiddyange-winter.html">LOOKBOOK</a>
+                          <li><a href="../lookbook/">LOOKBOOK</a>
                               <ul class="dropdown">
-                                <li><a href="../lookbook-kiddyange-winter.html">키디앙쥬</a></li>
-                                <li><a href="../lookbook-lian-winter.html">리앙뜨</a></li>
-                                <li><a href="../lookbook-com-winter.html">꼬미앤조</a></li>
-                                <li><a href="../#">초등체육복</a></li>
+                                <li><a href="../lookbook/">키디앙쥬</a></li>
+                                <li><a href="../lookbook/index.php?brand=lian&season=win">리앙뜨</a></li>
+                                <li><a href="../lookbook/index.php?brand=com&season=win">꼬미앤조</a></li>
+                                <li><a href="../lookbook/index.php?brand=ele&season=all">초등체육복</a></li>
                                 <li><a href="../lookbook-pack.html">가방</a></li>
                                 <li><a href="../lookbook-safe.html">안전용품</a></li>
                                 <li><a href="../lookbook-role.html">역할놀이</a></li>
                               </ul>
                           </li>
-                          <li><a href="../#">COSTUME</a></li>
-                          <li><a href="../#">MEDIA</a>
+                          <li><a href="#">COSTUME</a></li>
+                          <li><a href="../youtube.html">MEDIA</a>
                               <ul class="dropdown">
-                                  <li><a href="../#">YOUTUBE</a></li>
-                                  <li><a href="../#">협찬소개</a></li>
-                                  <li><a href="../#">꼬미앤조</a></li>
+                                  <li><a href="../youtube.html">YOUTUBE</a></li>
+                                  <li><a href="#">협찬소개</a></li>
+                                  <li><a href="#">꼬미앤조</a></li>
                               </ul>
                           </li>
-                          <li><a href="../#">COMMUNITY</a>
+                          <li><a href="#">COMMUNITY</a>
                               <ul class="dropdown">
-                                  <li><a href="../#">공지사항</a></li>
-                                  <li><a href="../#">견적의뢰</a></li>
+                                  <li><a href="#">공지사항</a></li>
+                                  <li><a href="#">견적의뢰</a></li>
                               </ul>
                           </li>
                       </ul>
                   </nav>
                 </div>
                 <div class="col-xs-2 top-social">
-                      <a href="../#"><img src="../img/youtube.png"/></a>
-                      <a href="../#"><img src="../img/insta.png"/></a>
-                      <a href="../#"><img src="../img/naver.png"/></a>
+                      <a href="https://www.youtube.com/channel/UCxvMm1JUc0cfjiYdSULhuZw"><img src="../img/youtube.png"/></a>
+                      <a href="https://www.instagram.com/istar.hi/"><img src="../img/insta.png"/></a>
+                      <a href="https://blog.naver.com/PostList.nhn?blogId=istar_hyejin"><img src="../img/naver.png"/></a>
                 </div>
               </div>
               <div id="mobile-menu-wrap"></div>
@@ -170,14 +181,20 @@ $dir_start=12*($this_page-1);
     <div class="lb-content">
         <img src="<?php echo $path; ?>/main.jpg">
     <!-- Hero Section End -->
-    <div class="container" style="margin:5px;">
+    <?php if ($season!=='all'){
+    echo
+    '<div class="container" style="margin:5px;">
       <ul class="nav nav-tabs">
-        <li role="presentation" class="active"><a href="../#">KiDDYANGE Winter</a></li>
-        <li role="presentation"><a href="../lookbook-kiddyange-summer.html">KiDDYANGE Summer</a></li>
+        <li role="presentation"'; if($season=='win'){echo 'class="active"';}echo '><a href="../lookbook/?brand='.$brand.'&season=win">Winter</a></li>';
+        echo '<li role="presentation"'; if($season=='sum'){echo 'class="active"';} echo '><a href="../lookbook/?brand='.$brand.'&season=sum">Summer</a></li>
       </ul>
-    </div>
+    </div>';
+  } ?>
     <!-- Banner Section Begin -->
-
+    <?php
+    if (isset($_SESSION['username'])) {
+        echo '<button>edit</button>';
+      }?>
     <div class="banner-section spad">
         <div class="container-fluid">
           <?php
@@ -191,7 +208,7 @@ $dir_start=12*($this_page-1);
                   '<div class="col-lg-4">
                       <div class="thumbnail">
                         <a href="./detail.php?brand='.$brand.'&season='.$season.'&name='.$this_dir.'">
-                          <img src="../img/lookbook/'.$brand.'/'.$season.'/'.$this_dir.'/thumbnail.jpg" alt="">
+                          <img src="../img/lookbook/'.$brand.'/'.$season.'/looks/'.$this_dir.'/thumbnail.jpg" alt="">
                           <div class="caption">
                             <h4 style="text-align:center;">'.$this_dir.'</h4>
                           </div>
@@ -209,7 +226,7 @@ $dir_start=12*($this_page-1);
                 '<div class="col-lg-4">
                     <div class="thumbnail">
                       <a href="./detail.php?brand='.$brand.'&season='.$season.'&name='.$this_dir.'">
-                        <img src="../img/lookbook/'.$brand.'/'.$season.'/'.$this_dir.'/thumbnail.jpg" alt="">
+                        <img src="../img/lookbook/'.$brand.'/'.$season.'/looks/'.$this_dir.'/thumbnail.jpg" alt="">
                         <div class="caption">
                           <h4 style="text-align:center;">'.$this_dir.'</h4>
                         </div>
@@ -228,7 +245,7 @@ $dir_start=12*($this_page-1);
                   '<div class="col-lg-4">
                       <div class="thumbnail">
                         <a href="./detail.php?brand='.$brand.'&season='.$season.'&name='.$this_dir.'">
-                          <img src="../img/lookbook/'.$brand.'/'.$season.'/'.$this_dir.'/thumbnail.jpg" alt="">
+                          <img src="../img/lookbook/'.$brand.'/'.$season.'/looks/'.$this_dir.'/thumbnail.jpg" alt="">
                           <div class="caption">
                             <h4 style="text-align:center;">'.$this_dir.'</h4>
                           </div>
@@ -267,15 +284,15 @@ $dir_start=12*($this_page-1);
     <footer class="footer-section">
         <div class="container">
             <div class="row">
-                <div class="col-lg-3">
+                <div class="col-lg-12">
                     <div class="footer-left">
                         <div class="footer-logo">
-                            <a href="../#"><img src="../img/footer-logo.png" alt=""></a>
+                            <a href="#"><img src="../img/footer-logo.png" alt=""></a>
                         </div>
                         <ul>
-                            <li>Address: 60-49 Road 11378 New York</li>
-                            <li>Phone: +65 11.188.888</li>
-                            <li>Email: hello.colorlib@gmail.com</li>
+                            <li>Address: 대구광역시 달서구 구마로 49(본리동661-9)</li>
+                            <li>Phone: 053)556-2581~4</li>
+                            <li>Email: istar2591@hanmail.net</li>
                         </ul>
                     </div>
                 </div>
@@ -286,18 +303,18 @@ $dir_start=12*($this_page-1);
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="copyright-text">
-                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="../https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                          Copyright &copy;ISTAR. All rights reserved</a>
                         </div>
-                        <!-- <div class="payment-pic">
-                            <img src="../img/payment-method.png" alt="">
-                        </div> -->
                     </div>
                 </div>
             </div>
         </div>
     </footer>
+    <!-- Footer Section End -->
+
+    <a style="display:scroll;position:fixed;bottom:10px;right:10px;z-index:1;" href="#" title="top">
+      <img src="../img/top.png" alt="top">
+    </a>
     <!-- Footer Section End -->
 
     <!-- Js Plugins -->

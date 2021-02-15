@@ -14,63 +14,31 @@ if (isset($_GET['page'])){
   $this_page=$_GET['page'];
 };
 
-$path = '../img/lookbook/'.$brand.'/'.$season.'/';
-$item_list = array();
+$path = '../img/lookbook/'.$brand.'/'.$season;
 
-//open order.csv
-$cnt=0;
-if(($handle=fopen('./'.$brand.'/'.$season.'/order.csv', 'r')) !== FALSE){
-  while (($data=fgetcsv($handle, 1000, ','))!==FALSE) {
-    if ($cnt==0){
-      array_push($item_list, ['name'=>substr($data[0], 3), 'order'=>$data[1]]);
-      $cnt++;
-    }
-    else{
-      $cnt++;
-      array_push($item_list, ['name'=>$data[0], 'order'=>$data[1]]);
-
-    }
-  }
-  fclose($handle);
-}
-
-//sort to order
-usort($item_list, function($a, $b){
-  if($a['order'] == $b['order']){
-    return 0;
-  }
-  if($a['order'] > $b['order']){
-    return -1;
-  }
-  if($a['order'] < $b['order']){
-    return 1;
-  }
-});
-
-// update order.csv
-$name_list=[];
-foreach ($item_list as $row) {
-  $name_list[]=$row['name'];
-}
 $img_dir = scandir($path.'/looks');
+
 $img_dir = array_splice($img_dir, 2, count($img_dir));
-foreach ($img_dir as $value) {
-  if (array_search($value, $name_list)===FALSE){
-    $item_list[] = ['name'=>$value, 'order'=>$item_list[0]['order']+1];
-  };
+
+
+$db_host="localhost";
+$db_user="jyj1103";
+$db_password="doqtm7789!@";
+$db_name="jyj1103";
+$con=mysqli_connect($db_host, $db_user, $db_password, $db_name) or die("접속 실패");
+
+$sql = "select * from ".$brand."_".$season." order by orderNum desc";
+$ret = mysqli_query($con, $sql);
+$item_list=array();
+while($row = mysqli_fetch_array($ret)) {
+  array_push($item_list, ['title'=>$row['title'], 'name'=>$row['name'], 'order'=>$row['orderNum']]);
 }
-$file = fopen('./'.$brand.'/'.$season.'/order.csv', 'w');
-fputs($file, "\xEF\xBB\xBF");
-if($file){
-  foreach ($item_list as $key => $val){
-    fputcsv($file, $val);
-  }
-}
-fclose($file);
+mysqli_close($con);
 
 $dir_num = count($item_list);
 $dir_cnt = 0;
 $last_page = intval($dir_num/12)+1;
+$this_page = ($this_page < 1)?1:$this_page;
 $this_page = ($this_page > $last_page)?$last_page:$this_page;
 $dir_start=12*($this_page-1);
 ?>
@@ -78,7 +46,7 @@ $dir_start=12*($this_page-1);
 <html lang="zxx">
 
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta name="description" content="Fashi Template">
     <meta name="keywords" content="Fashi, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -203,14 +171,15 @@ $dir_start=12*($this_page-1);
             for ($row=0; $row<intval($last_num/3);$row++){
               echo '<div class="row">';
                 for ($col=0; $col<3; $col++){
-                  $this_dir = $item_list[$dir_start+$dir_cnt]['name'];
+                  $this_dir = $item_list[$dir_start+$dir_cnt]['title'];
+                  $look_name = $item_list[$dir_start+$dir_cnt]['name'];
                   echo
                   '<div class="col-lg-4">
                       <div class="thumbnail">
                         <a href="./detail.php?brand='.$brand.'&season='.$season.'&name='.$this_dir.'">
                           <img src="../img/lookbook/'.$brand.'/'.$season.'/looks/'.$this_dir.'/thumbnail.jpg" alt="">
                           <div class="caption">
-                            <h4 style="text-align:center;">'.$this_dir.'</h4>
+                            <h4 style="text-align:center;">'.$look_name.'</h4>
                           </div>
                         </a>
                       </div>
@@ -221,14 +190,15 @@ $dir_start=12*($this_page-1);
             }
             echo '<div class="row">';
               for ($i=0; $i<$last_num%3; $i++) {
-                $this_dir = $item_list[$dir_start+$dir_cnt]['name'];
+                $this_dir = $item_list[$dir_start+$dir_cnt]['title'];
+                $look_name = $item_list[$dir_start+$dir_cnt]['name'];
                 echo
                 '<div class="col-lg-4">
                     <div class="thumbnail">
                       <a href="./detail.php?brand='.$brand.'&season='.$season.'&name='.$this_dir.'">
                         <img src="../img/lookbook/'.$brand.'/'.$season.'/looks/'.$this_dir.'/thumbnail.jpg" alt="">
                         <div class="caption">
-                          <h4 style="text-align:center;">'.$this_dir.'</h4>
+                          <h4 style="text-align:center;">'.$look_name.'</h4>
                         </div>
                       </a>
                     </div>
@@ -240,14 +210,15 @@ $dir_start=12*($this_page-1);
             for ($row=0; $row<4; $row++){
               echo '<div class="row">';
                 for ($col=0; $col<3; $col++){
-                  $this_dir = $item_list[$dir_start+$dir_cnt]['name'];
+                  $this_dir = $item_list[$dir_start+$dir_cnt]['title'];
+                  $look_name = $item_list[$dir_start+$dir_cnt]['name'];
                   echo
                   '<div class="col-lg-4">
                       <div class="thumbnail">
                         <a href="./detail.php?brand='.$brand.'&season='.$season.'&name='.$this_dir.'">
                           <img src="../img/lookbook/'.$brand.'/'.$season.'/looks/'.$this_dir.'/thumbnail.jpg" alt="">
                           <div class="caption">
-                            <h4 style="text-align:center;">'.$this_dir.'</h4>
+                            <h4 style="text-align:center;">'.$look_name.'</h4>
                           </div>
                         </a>
                       </div>
@@ -262,17 +233,63 @@ $dir_start=12*($this_page-1);
     <nav aria-label="Page navigation" align="center">
       <ul class="pagination pagination-lg">
         <li>
-          <a href="../#" aria-label="Previous">
+          <a href="./?brand=<?php echo $brand.'&season='.$season.'&page=1' ?>" aria-label="First">
             <span aria-hidden="true">&laquo;</span>
           </a>
         </li>
+
         <?php
         $page_num = ceil($dir_num/12);
-        for ($page_i=1; $page_i<=$page_num; $page_i++){
-          echo '<li><a href="./?brand='.$brand.'&season='.$season.'&page='.$page_i.'">'.$page_i.'</a></li>';
-        }?>
+        if ($page_num<6){
+          for ($page_i=1; $page_i<=$page_num; $page_i++){
+            echo '<li><a href="./?brand='.$brand.'&season='.$season.'&page='.$page_i.'">'.$page_i.'</a></li>';
+          }
+        }elseif ($this_page<3){
+          echo
+          '<li>
+            <a href="./?brand='.$brand.'&season='.$season.'&page=1" aria-label="Previous">
+              <span aria-hidden="true"><</span>
+            </a>
+          </li>';
+          for ($page_i=1; $page_i<6; $page_i++){
+            echo '<li><a href="./?brand='.$brand.'&season='.$season.'&page='.$page_i.'">'.$page_i.'</a></li>';
+          }
+          echo '<li>
+            <a href="./?brand='.$brand.'&season='.$season.'&page='.(string)($this_page+5).'" aria-label="Next">
+              <span aria-hidden="true">></span>
+            </a>
+          </li>';
+        }elseif ($this_page>$last_page-3){
+          echo
+          '<li>
+            <a href="./?brand='.$brand.'&season='.$season.'&page='.(string)($this_page-5).'" aria-label="Previous">
+              <span aria-hidden="true"><</span>
+            </a>
+          </li>';
+          for ($page_i=1; $page_i<6; $page_i++){
+            echo '<li><a href="./?brand='.$brand.'&season='.$season.'&page='.$page_i.'">'.$page_i.'</a></li>';
+          }
+        }else {
+          echo
+          '<li>
+            <a href="./?brand='.$brand.'&season='.$season.'&page='.(string)($this_page-5).'" aria-label="Previous">
+              <span aria-hidden="true"><</span>
+            </a>
+          </li>';
+          for ($c=0; $c<5; $c++){
+
+            echo '<li><a href="./?brand='.$brand.'&season='.$season.'&page='.$this_page-2+$c.'">'.$this_page-2+$c.'</a></li>';
+          }
+          echo '<li>
+            <a href="./?brand='.$brand.'&season='.$season.'&page='.(string)($this_page+5).'" aria-label="Next">
+              <span aria-hidden="true">></span>
+            </a>
+          </li>';
+        }
+
+        ?>
         <li>
-          <a href="../#" aria-label="Next">
+          <a href="./?brand=<?php echo $brand.'&season='.$season.'&page='.$last_page ?>" aria-label="Last">
             <span aria-hidden="true">&raquo;</span>
           </a>
         </li>

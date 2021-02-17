@@ -69,7 +69,7 @@
                                 <li><a href="../lookbook/index.php?brand=ele&season=all">초등체육복</a></li>
                                 <li><a href="../lookbook-pack.html">가방</a></li>
                                 <li><a href="../lookbook-safe.html">안전용품</a></li>
-                                <li><a href="../lookbook-role.html">역할놀이</a></li>
+                                <li><a href="../lookbook-role.html">기타상품</a></li>
                               </ul>
                           </li>
                           <li><a href="#">COSTUME</a></li>
@@ -101,7 +101,7 @@
   </header>
     <!-- Header End -->
 
-    
+
     <?php
     $brand = 'kid';
     if (isset($_GET['brand'])){

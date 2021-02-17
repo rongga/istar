@@ -69,7 +69,7 @@
                                 <li><a href="./lookbook/index.php?brand=ele&season=all">초등체육복</a></li>
                                 <li><a href="./lookbook-pack.html">가방</a></li>
                                 <li><a href="./lookbook-safe.html">안전용품</a></li>
-                                <li><a href="./lookbook-role.html">역할놀이</a></li>
+                                <li><a href="./lookbook-role.html">기타상품</a></li>
                               </ul>
                           </li>
                           <li><a href="https://www.istarhi.com" target="_blank">COSTUME</a></li>
@@ -147,30 +147,35 @@
                         <div class="leave-comment">
                             <h4>Leave A Comment</h4>
                             <p>Our staff will call back later and answer your questions.</p>
-                            <form action="#" class="comment-form">
+                            <form method="post" action="send_mail.php" name="frm" id="frm" enctype="multipart/form-data" class="comment-form">
                                 <div class="row">
                                     <div class="col-lg-6">
-                                        <input type="text" placeholder="성함">
+                                        <input type="text" name="from_name" id="from_name" placeholder="성함">
                                     </div>
                                   </div>
                                   <div class="row">
                                     <div class="col-lg-6">
-                                        <input type="text" placeholder="이메일">
+                                        <input type="text" name="from" id="from" placeholder="이메일">
                                     </div>
                                   </div>
                                   <div class="row">
                                     <div class="col-lg-6">
-                                        <input type="text" placeholder="전화번호">
+                                        <input type="text" name="phone" id="phone" placeholder="전화번호">
+                                    </div>
+                                  </div>
+                                  <div class="row">
+                                    <div class="col-lg-6">
+                                        <input type="text" name="subject" id="subject" placeholder="제목">
                                     </div>
                                   </div>
                                   <div class="row">
                                     <div class="col-lg-12">
-                                        <textarea placeholder="내용"></textarea>
+                                        <textarea name="content" id="content" placeholder="내용"></textarea>
                                     </div>
                                 </div>
                                 <div class="row">
                                   <div class="col-lg-6">
-                                      <input type="file" placeholder="파일첨부"></input>
+                                      <input type="file" ID="FILEUPLOAD0" NAME="FILEUPLOAD0" placeholder="파일첨부"></input>
                                       <button type="submit" class="site-btn">보내기</button>
                                   </div>
                               </div>
